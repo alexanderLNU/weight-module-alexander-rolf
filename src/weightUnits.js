@@ -6,4 +6,4 @@ const weightUnits = {
     lb: 453.592,
 }
 
-export default weightUnits;
+export default weightUnits
