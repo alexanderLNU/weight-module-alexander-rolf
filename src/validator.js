@@ -1,4 +1,4 @@
-import weightUnits from "./weightUnits.js"
+import weightUnits from './weightUnits.js'
 
 /**
  * Check if unit is a valid weight unit.
@@ -7,5 +7,5 @@ import weightUnits from "./weightUnits.js"
  * @returns {boolean}   Returns true if unit is a valid weight unit, otherwise returns false.
  */
 export function unitValidator (unit) {
-    return Object.prototype.hasOwnProperty.call(weightUnits, unit)
+  return Object.prototype.hasOwnProperty.call(weightUnits, unit)
 }
