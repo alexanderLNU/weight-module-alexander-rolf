@@ -1,4 +1,5 @@
 import { unitValidator } from '../validator.js'
+import { convertUnit } from '../unitConverter.js'
 
 /**
  * This class represents a weight with a given unit.
@@ -21,5 +22,20 @@ export default class Weight {
 
     this.weight = weight
     this.weightUnit = weightUnit
+  }
+
+  /**
+   * Convert the weight to a new unit.
+   *
+   * @param {string} newWeightUnit  The new unit that the weight should be converted to.
+   * @returns {Weight}              New instance of Weight with the converted weight and unit.
+   */
+  convert (newWeightUnit) {
+    if (!unitValidator(newWeightUnit)) {
+      throw new Error('You are trying to use a invalid unit!')
+    }
+
+    const newWeight = convertUnit(this.weight, this.weightUnit, newWeightUnit)
+    return new Weight(newWeight, newWeightUnit)
   }
 }
