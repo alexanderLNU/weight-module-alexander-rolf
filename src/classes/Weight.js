@@ -38,4 +38,47 @@ export default class Weight {
     const newWeight = convertUnit(this.weight, this.weightUnit, newWeightUnit)
     return new Weight(newWeight, newWeightUnit)
   }
+
+  /**
+   * This method adds another instance of Weight to this instance.
+   *
+   * @param {Weight} otherWeight The other instance of Weight that should be added to this instance.
+   * @returns {Weight}           New instance of Weight with the total sum of the two weights.
+   */
+  add (otherWeight) {
+    if (!(otherWeight instanceof Weight)) {
+      throw new Error('The argument has to be an instance of Weight!')
+    }
+
+    const otherWeightInThisUnit = otherWeight.convert(this.weightUnit)
+    const totalWeight = this.weight + otherWeightInThisUnit.weight
+
+    return new Weight(totalWeight, this.weightUnit)
+  }
+
+  /**
+   * This method subtracts another instance of Weight from this instance.
+   *
+   * @param {Weight} otherWeight The other instance of Weight that should be subtracted from this instance.
+   * @returns {Weight}           New instance of Weight with the subtracted weight.
+   */
+  subtract (otherWeight) {
+    if (!(otherWeight instanceof Weight)) {
+      throw new Error('The argument has to be an instance of Weight!')
+    }
+
+    const otherWeightInThisUnit = otherWeight.convert(this.weightUnit)
+    const subtractedWeight = this.weight - otherWeightInThisUnit.weight
+
+    return new Weight(subtractedWeight, this.weightUnit)
+  }
+
+  /**
+   * Method returns a string with the weight and unit.
+   *
+   * @returns {string} A strign with the weight and unit.
+   */
+  toString () {
+    return `${this.weight} ${this.weightUnit}`
+  }
 }
