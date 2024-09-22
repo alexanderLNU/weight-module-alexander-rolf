@@ -19,16 +19,16 @@ test('Adding two instances of weight together', () => {
   const weight1 = new Weight(5000, 'g')
   const weight2 = new Weight(9, 'kg')
   const totalWeight = weight1.add(weight2)
-  expect(totalWeight.weight).toBe(14)
-  expect(totalWeight.weightUnit).toBe('kg')
+  expect(totalWeight.weight).toBe(14000)
+  expect(totalWeight.weightUnit).toBe('g')
 })
 
 test('Subtracting two instances of weight', () => {
   const weight1 = new Weight(10000, 'g')
   const weight2 = new Weight(9, 'kg')
   const subtractedWeight = weight1.subtract(weight2)
-  expect(subtractedWeight.weight).toBe(1)
-  expect(subtractedWeight.weightUnit).toBe('kg')
+  expect(subtractedWeight.weight).toBe(1000)
+  expect(subtractedWeight.weightUnit).toBe('g')
 })
 
 test('See if toString works', () => {
