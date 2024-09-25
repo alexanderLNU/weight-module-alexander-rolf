@@ -1,6 +1,14 @@
 import { convertUnit } from '../unitConverter.js'
 
 describe('convertUnit', () => {
+  test('1 stone to kilograms', () => {
+    expect(convertUnit(1, 'stone', 'kg')).toBeCloseTo(6.3503)
+  })
+
+  test('1 ounce to grams', () => {
+    expect(convertUnit(1, 'oz', 'g')).toBeCloseTo(28.3495)
+  })
+
   test('1000 mg to grams', () => {
     expect(convertUnit(1000, 'mg', 'g')).toBe(1)
   })

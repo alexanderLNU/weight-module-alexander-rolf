@@ -1,5 +1,19 @@
 import Weight from '../classes/Weight.js'
 
+test('Converting the weight from stone to kilograms', () => {
+  const weight = new Weight(10, 'stone')
+  const convertedWeight = weight.convert('kg')
+  expect(convertedWeight.weight).toBeCloseTo(63.503)
+  expect(convertedWeight.weightUnit).toBe('kg')
+})
+
+test('Converting the weight from ounces to grams', () => {
+  const weight = new Weight(100, 'oz')
+  const convertedWeight = weight.convert('g')
+  expect(convertedWeight.weight).toBeCloseTo(2834.95)
+  expect(convertedWeight.weightUnit).toBe('g')
+})
+
 describe('Weight', () => {
   test('Creating a new instance of Weight', () => {
     const weight = new Weight(5000, 'g')
