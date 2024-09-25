@@ -36,9 +36,52 @@ test('See if toString works', () => {
   expect(weight.toString()).toBe('5000 g')
 })
 
-// Potentiella tester att lägga till... jobba vidare.
-// Kasta fel vid ogilt värde på vikten typ g.
-// Kasta fel vid ogilt vikt t ex blablabla.
-// Kasta fel if om den konv till ogiltlig unit?
-// Kasta fel om man addar en icke-vikt instans?
-// Samma som ovan men om man minusar en icke-vikt?
+test('Throw error if it is a invalid weightvalue', () => {
+  expect(() => new Weight('WRONG', 'g')).toThrow('The weight has to be a number!')
+})
+
+test('Throw error if it is a invalid weight unit', () => {
+  expect(() => new Weight(5000, 'WRONG')).toThrow('You are trying to use a invalid unit!')
+})
+
+test('Throw error if conversion is trying to be made to an invalid unit', () => {
+  const weight = new Weight(5000, 'g')
+  expect(() => weight.convert('WRONG')).toThrow('You are trying to use a invalid unit!')
+})
+
+test('Throw error if you are trying to subtract a non-weight instance', () => {
+  const weight = new Weight(5000, 'g')
+  expect(() => weight.subtract('WRONG')).toThrow('The argument has to be an instance of Weight!')
+})
+
+test('Throw error if you are trying to add a non-weight instance', () => {
+  const weight = new Weight(5000, 'g')
+  expect(() => weight.add(100)).toThrow('The argument has to be an instance of Weight!')
+})
+
+test('See if class handles decimals correctly', () => {
+  const weight = new Weight(5.5, 'kg')
+  const convertedWeight = weight.convert('g')
+  expect(convertedWeight.weight).toBeCloseTo(5500)
+  expect(convertedWeight.weightUnit).toBe('g')
+})
+
+test('See if class handles subtracting a larger weight on a smaller one', () => {
+  const weight1 = new Weight(10000, 'g')
+  const weight2 = new Weight(20, 'kg')
+  const resultWeight = weight1.subtract(weight2)
+  expect(resultWeight.weight).toBe(-10000)
+  expect(resultWeight.weightUnit).toBe('g')
+})
+
+test('See if class handles the value zero', () => {
+  const weight = new Weight(0, 'g')
+  expect(weight.weight).toBe(0)
+  expect(weight.weightUnit).toBe('g')
+})
+
+test('Handling negative weight values', () => {
+  const weight = new Weight(-5000, 'g')
+  expect(weight.weight).toBe(-5000)
+  expect(weight.weightUnit).toBe('g')
+})
