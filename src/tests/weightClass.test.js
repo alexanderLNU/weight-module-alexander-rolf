@@ -1,5 +1,19 @@
 import Weight from '../classes/Weight.js'
 
+test('Multipalying a weight by a given number', () => {
+  const weight = new Weight(5000, 'g')
+  const multipliedWeight = weight.multiply(5)
+  expect(multipliedWeight.weight).toBe(25000)
+  expect(multipliedWeight.weightUnit).toBe('g')
+})
+
+test('Dividing a weight by a given number', () => {
+  const weight = new Weight(5000, 'g')
+  const dividedWeight = weight.divide(5)
+  expect(dividedWeight.weight).toBe(1000)
+  expect(dividedWeight.weightUnit).toBe('g')
+})
+
 test('Converting the weight from stone to kilograms', () => {
   const weight = new Weight(10, 'stone')
   const convertedWeight = weight.convert('kg')
