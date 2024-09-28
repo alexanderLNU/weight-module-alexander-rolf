@@ -160,4 +160,35 @@ export default class Weight {
     const otherWeightInThisUnit = otherWeight.convert(this.weightUnit)
     return this.weight > otherWeightInThisUnit.weight
   }
+
+  /**
+   * This method creates a new instance of Weight from the userInput string
+   * and it also throws error if it is in a wrong format or a non-valid unit.
+   *
+   * @param {string} userInput The string that is going to be parsed for example '1 kg'.
+   * @returns {Weight}         A new instance of Weight with the userInput weight and unit.
+   */
+  static fromTextInput (userInput) {
+    if (typeof userInput !== 'string') {
+      throw new Error('Input must be a string!')
+    }
+
+    const regexRule = /^(-?[\d.]+)\s*(\w+)$/ // Negative numbers OK
+    const inputTrimmed = userInput.trim() // For spaces
+    const checkIfMatch = inputTrimmed.match(regexRule)
+
+    if (!checkIfMatch) {
+      throw new Error('Input must first be a number, then followed by a unit!')
+    }
+
+    // First number, then unit
+    const weight = parseFloat(checkIfMatch[1])
+    const weightUnit = checkIfMatch[2]
+
+    if (!unitValidator(weightUnit)) {
+      throw new Error('You are trying to use a invalid unit!')
+    }
+    // Actually creating the new instance of Weight with the parsed values from userInput.
+    return new Weight(weight, weightUnit)
+  }
 }
