@@ -1,5 +1,28 @@
 import Weight from '../classes/Weight.js'
 
+test('Comparing two weights to see if it is heavier than the other weight', () => {
+  const weight1 = new Weight(5000, 'g')
+  const weight2 = new Weight(10, 'kg')
+  expect(weight2.isHeavierThan(weight1)).toBe(true)
+})
+
+test('Comparing two weights to see if they are the same weight', () => {
+  const weight1 = new Weight(5000, 'g')
+  const weight2 = new Weight(5, 'kg')
+  expect(weight1.hasSameWeightAs(weight2)).toBe(true)
+})
+
+test('Comparing two weights to see if it is lighter than the other weight', () => {
+  const weight1 = new Weight(5000, 'g')
+  const weight2 = new Weight(10, 'kg')
+  expect(weight1.isLighterThan(weight2)).toBe(true)
+})
+
+test('Throw error if trying to divide by zero', () => {
+  const weight = new Weight(5000, 'g')
+  expect(() => weight.divide(0)).toThrow('It is not valid to divide by zero!')
+})
+
 test('Multipalying a weight by a given number', () => {
   const weight = new Weight(5000, 'g')
   const multipliedWeight = weight.multiply(5)

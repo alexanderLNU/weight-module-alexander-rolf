@@ -115,4 +115,49 @@ export default class Weight {
     const newWeight = this.weight * number
     return new Weight(newWeight, this.weightUnit)
   }
+
+  /**
+   * This method checks if the weight is lighter than the other weight given as an argment.
+   *
+   * @param {Weight} otherWeight The other instance of weight that is going to be compared.
+   * @returns {boolean}          True ifthe weight is lighter than the other weight otherwise it returns false.
+   */
+  isLighterThan (otherWeight) {
+    if (!(otherWeight instanceof Weight)) {
+      throw new Error('The argument must be an instance of Weight!')
+    }
+
+    const otherWeightInThisUnit = otherWeight.convert(this.weightUnit)
+    return this.weight < otherWeightInThisUnit.weight
+  }
+
+  /**
+   * This method checks if the weight is equal to the other weight given as an argument.
+   *
+   * @param {Weight} otherWeight The other instance of weight that is going to be compared.
+   * @returns {boolean}          True if the weights are the same weight otherwise it returns false.
+   */
+  hasSameWeightAs (otherWeight) {
+    if (!(otherWeight instanceof Weight)) {
+      throw new Error('The argument must be an instance of Weight!')
+    }
+
+    const otherWeightInThisUnit = otherWeight.convert(this.weightUnit)
+    return this.weight === otherWeightInThisUnit.weight
+  }
+
+  /**
+   * This method checks if the weight is heavier than the other weight given as an argument.
+   *
+   * @param {Weight} otherWeight The other instance of weight that is going to be compared.
+   * @returns {boolean}          True if this weight is heavier than the other weight otherwise it returns false.
+   */
+  isHeavierThan (otherWeight) {
+    if (!(otherWeight instanceof Weight)) {
+      throw new Error('The argument must be an instance of Weight!')
+    }
+
+    const otherWeightInThisUnit = otherWeight.convert(this.weightUnit)
+    return this.weight > otherWeightInThisUnit.weight
+  }
 }
