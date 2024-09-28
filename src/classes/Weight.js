@@ -173,9 +173,10 @@ export default class Weight {
       throw new Error('Input must be a string!')
     }
 
-    const regexRule = /^(-?[\d.]+)\s*(\w+)$/ // Negative numbers OK
+    const regexRule = /^(-?\d+(?:\.\d+)?)\s*(\w+)$/
     const inputTrimmed = userInput.trim() // For spaces
-    const checkIfMatch = inputTrimmed.match(regexRule)
+    const inputFixed = inputTrimmed.replace(/,/g, '.') // commas to dots
+    const checkIfMatch = inputFixed.match(regexRule)
 
     if (!checkIfMatch) {
       throw new Error('Input must first be a number, then followed by a unit!')

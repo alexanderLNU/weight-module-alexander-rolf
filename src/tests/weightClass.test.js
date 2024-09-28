@@ -1,5 +1,17 @@
 import Weight from '../classes/Weight.js'
 
+test('Test that decimals get handled in fromTextInput', () => {
+  const weight = Weight.fromTextInput('80,21 kg')
+  expect(weight.weight).toBe(80.21)
+  expect(weight.weightUnit).toBe('kg')
+})
+
+test('Create a Weight instance with a lot of spaces', () => {
+  const weight = Weight.fromTextInput('    5000  g          ')
+  expect(weight.weight).toBe(5000)
+  expect(weight.weightUnit).toBe('g')
+})
+
 test('Comparing two weights to see if it is heavier than the other weight', () => {
   const weight1 = new Weight(5000, 'g')
   const weight2 = new Weight(10, 'kg')
