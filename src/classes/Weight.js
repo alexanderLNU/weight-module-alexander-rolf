@@ -174,22 +174,21 @@ export default class Weight {
     }
 
     const regexRule = /^(-?\d+(?:\.\d+)?)\s*(\w+)$/
-    const inputTrimmed = userInput.trim() // For spaces
-    const inputFixed = inputTrimmed.replace(/,/g, '.') // commas to dots
+    const inputTrimmed = userInput.trim()
+    const inputFixed = inputTrimmed.replace(/,/g, '.') // Commas to dots
     const checkIfMatch = inputFixed.match(regexRule)
 
     if (!checkIfMatch) {
       throw new Error('Input must first be a number, then followed by a unit!')
     }
 
-    // First number, then unit
     const weight = parseFloat(checkIfMatch[1])
     const weightUnit = checkIfMatch[2]
 
     if (!unitValidator(weightUnit)) {
       throw new Error('You are trying to use a invalid unit!')
     }
-    // Actually creating the new instance of Weight with the parsed values from userInput.
+
     return new Weight(weight, weightUnit)
   }
 }
