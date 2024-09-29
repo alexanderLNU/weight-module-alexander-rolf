@@ -25,4 +25,25 @@ export default class WeightManager {
     }
     return false
   }
+
+  /**
+   * This method adds a instance of Weight to the collection.
+   *
+   * @param {Weight} weight The instance of Weight that is going to be added to the collection.
+   */
+  addWeight (weight) {
+    if (!(weight instanceof Weight)) {
+      throw new Error('The argument has to be an instance of Weight!')
+    }
+    this.weights.push(weight)
+  }
+
+  /**
+   * This method returns the number of weights in the collection.
+   *
+   * @returns {number} How many weights there are in the collection.
+   */
+  numberOfWeights () {
+    return this.weights.length
+  }
 }
