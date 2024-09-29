@@ -1,3 +1,5 @@
+import Weight from './Weight.js'
+
 /**
  * This class manages a collection of Weight instances.
  */
@@ -8,9 +10,19 @@ export default class WeightManager {
   constructor () {
     this.weights = []
   }
-  // ska kunna ta bort och lägga till vikter i denna manager. Viktigt med an avarageweight för t ex vågar osv men även kunna
-  // se vad högsta och lägsta varit. Får se vad som hinns med men satsa på att få i ndetta och reflektera över mer efteråt... 
-  // vad behövs egentligen?
-  // tänk vad som kan vara nyttigt...
 
+  /**
+   * This method removes a Weitght instance from collection.
+   *
+   * @param {Weight} weight The instance of Weight that is going to be removed.
+   * @returns {boolean}     Returns true if the weight was dound and removed, otherwise returning false.
+   */
+  removeWeight (weight) {
+    const i = this.weights.indexOf(weight)
+    if (i !== -1) { // Is wiehgt in collection? if its not -1 it is there.
+      this.weights.splice(i, 1)
+      return true
+    }
+    return false
+  }
 }
