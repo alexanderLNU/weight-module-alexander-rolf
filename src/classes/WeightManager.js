@@ -93,4 +93,44 @@ export default class WeightManager {
     const avgWeightInWantedUnit = new Weight(avgWeight, 'g').convert(weightUnit)
     return avgWeightInWantedUnit
   }
+
+  /**
+   * This method returns the heaviest instance of Weight in the collection.
+   *
+   * @returns {Weight} Returns the heaviest instance of Weight in the collection.
+   */
+  getHeaviestWeight () {
+    if (this.weights.length === 0) {
+      throw new Error('There are no weights in the collection!')
+    }
+
+    let heaviestWeight = this.weights[0]
+    // Update when a heavier weight is found
+    for (const weight of this.weights) {
+      if (weight.isHeavierThan(heaviestWeight)) {
+        heaviestWeight = weight
+      }
+    }
+    return heaviestWeight
+  }
+
+  /**
+   * This method returns the lightest instance of Weight in the collection.
+   *
+   * @returns {Weight} Returns the lightest instance of Weight in the collection.
+   */
+  getLightestWeight () {
+    if (this.weights.length === 0) {
+      throw new Error('There are no weights in the collection!')
+    }
+
+    let lightestWeight = this.weights[0]
+    // Update when a lighter weight is found
+    for (const weight of this.weights) {
+      if (weight.isLighterThan(lightestWeight)) {
+        lightestWeight = weight
+      }
+    }
+    return lightestWeight
+  }
 }
