@@ -70,4 +70,27 @@ export default class WeightManager {
     const totalWeightInWantedUnit = new Weight(sumOfWeightsInGrams, 'g').convert(weightUnit)
     return totalWeightInWantedUnit
   }
+
+  /**
+   * This method returns avg weight of all the instances of Weight in the collection.
+   *
+   * @param {string} weightUnit Unit to return avg weight in, grams is the default set unit.
+   * @returns {Weight}          A new instance of Weight with the average weight and wanted unit.
+   */
+  getAverageWeight (weightUnit = 'g') {
+    if (this.weights.length === 0) {
+      throw new Error('There are no weights in the collection!')
+    }
+    if (!unitValidator(weightUnit)) {
+      throw new Error('You are trying to use a invalid unit!')
+    }
+
+    // Get sum in grams
+    const totalWeight = this.getTotalWeight('g').weight
+    const avgWeight = totalWeight / this.weights.length
+
+    // Convert avg weight to wanted unit
+    const avgWeightInWantedUnit = new Weight(avgWeight, 'g').convert(weightUnit)
+    return avgWeightInWantedUnit
+  }
 }

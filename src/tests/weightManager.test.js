@@ -74,4 +74,24 @@ describe('WeightManager', () => {
     expect(weight.weight).toBeCloseTo(TotalKgShouldBe)
     expect(weight.weightUnit).toBe('kg')
   })
+
+  test('The method getAverageWeight should return average weight in the DEFAULT unit when we do not specify', () => {
+    const weightManager = new WeightManager()
+    weightManager.addWeight(new Weight(5000, 'g'))
+    weightManager.addWeight(new Weight(6000, 'g'))
+    const avgWeight = weightManager.getAverageWeight()
+    const avgWeightShouldBe = (5000 + 6000) / 2
+    expect(avgWeight.weight).toBe(avgWeightShouldBe)
+    expect(avgWeight.weightUnit).toBe('g')
+  })
+
+  test('The method getAverageWeight should return average weight in the wanted unit that is being chosen/specified', () => {
+    const weightManager = new WeightManager()
+    weightManager.addWeight(new Weight(5, 'kg'))
+    weightManager.addWeight(new Weight(6000, 'g'))
+    const avgWeight = weightManager.getAverageWeight('kg')
+    const avgWeightShouldBe = (5 + 6) / 2
+    expect(avgWeight.weight).toBe(avgWeightShouldBe)
+    expect(avgWeight.weightUnit).toBe('kg')
+  })
 })
