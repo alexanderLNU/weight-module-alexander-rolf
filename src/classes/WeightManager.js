@@ -1,3 +1,4 @@
+import { unitValidator } from '../validator.js'
 import Weight from './Weight.js'
 
 /**
@@ -45,5 +46,28 @@ export default class WeightManager {
    */
   numberOfWeights () {
     return this.weights.length
+  }
+
+  /**
+   * This method returns total weight of all weights in the manager and conerts it to wanted unit.
+   *
+   * @param {string} weightUnit Unit that we want the total weight to be, grams is set by default.
+   * @returns {Weight}          A new instance of Weight with the total weight and wanted unit.
+   */
+  getTotalWeight (weightUnit = 'g') {
+    if (!unitValidator(weightUnit)) {
+      throw new Error('You are trying to use a invalid unit!')
+    }
+
+    // Convert all weights we have to grams and sum them up.
+    let sumOfWeightsInGrams = 0
+    for (const weight of this.weights) {
+      const weightAsGrams = weight.convert('g').weight
+      sumOfWeightsInGrams += weightAsGrams
+    }
+
+    // Convert total weight to wanted unit.
+    const totalWeightInWantedUnit = new Weight(sumOfWeightsInGrams, 'g').convert(weightUnit)
+    return totalWeightInWantedUnit
   }
 }
