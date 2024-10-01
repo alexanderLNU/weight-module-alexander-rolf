@@ -14,4 +14,4 @@ Primärt körs automatiska tester, men jag ville även säkerställa att det fun
 
 ## Bild över coverage
 
-![Bild över coverage](coverage-bild.png)
+(coverage-bild.png)
