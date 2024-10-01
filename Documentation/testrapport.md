@@ -12,6 +12,6 @@ Jag har försökt täcka det mesta jag kunde tänka mig i testerna, men samtidig
 
 Primärt körs automatiska tester, men jag ville även säkerställa att det fungerade när min modul var publicerad på npm. Jag startade därför en test-app och laddade ner mitt paket som om jag var en helt annan utvecklare och kunde arbeta med den utan problem. Därför bedömer jag att baserat på tidsramen, att jag ändå har testat modulen väl.
 
-## Bild över coverage
+## Bild över test-coverage
 
-![Bild över coverage](coverage-bild.png)
+![Bild över test-coverage](coverage-bild.png)
