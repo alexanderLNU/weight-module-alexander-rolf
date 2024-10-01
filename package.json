@@ -1,15 +1,15 @@
 {
-  "name": "uppgift_l2",
+  "name": "weight-module-alexander-rolf",
   "version": "1.0.0",
-  "description": "",
+  "description": "A module for converting weight units and handling the weights in a manager, all code is written in Javascript.",
   "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "jest --coverage"
   },
-  "keywords": [],
+  "keywords": ["weightconverter", "weightmanager", "weight", "converter", "javascript", "module"],
   "author": "Alexander Rolf",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.25.2",
     "@babel/preset-env": "^7.25.4",
