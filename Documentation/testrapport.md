@@ -6,7 +6,7 @@ Jag skriver min testrapport på svenska då jag har med denna mapp i min npmigno
 
 ## Tanken med testerna
 
-Jag har försökt täcka det mesta jag kunde tänka mig i testerna, men samtidigt inte skapa alldeles för många. Jag vet med säkerhet att jag inte testar allt i och med coveragerapporten från Jest men jag är ändå mycket nöjd med min insats här då jag täckt det jag tycker är viktigast inom tidsramen.
+Jag har försökt täcka det mesta jag kunde tänka mig i testerna, men samtidigt inte skapa alldeles för många. Jag vet med säkerhet att jag inte testar allt i och med coveragerapporten från Jest men jag är ändå mycket nöjd med min insats här då jag täckt det jag tycker är viktigast inom tidsramen. Jag har valt att behålla testerna synliga för att användaren ska kunna ta del av dessa för att dels se hur det testas, hur man testar och exakt vad som testats.
 
 ## Automatiska tester och Test-App
 
