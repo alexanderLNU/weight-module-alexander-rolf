@@ -51,12 +51,45 @@ const yourConvertedWeight = yourCreatedWeight.convert('g')
 This will then convert your 10 kilograms into 10000 grams.
 
 **An example of mulitplying a weight**
+Here you can see an example of how you could multiply a weight by any number of times. Let's say we want to multiply our weight by 3:
+
+```bash
+const yourCreatedWeight = new Weight(3, 'kg') // Create a weight.
+const yourMultipliedWeight = yourCreatedWeight.multiply(3) // Multiply the weight using the multiply method.
+console.log(yourMultipliedWeight.toString()) // Will give the output of "9 kg".
+```
 
 **An example of comparing weights:**
+You can for example see if a weight is lighter than another weight. To do that you can use the isLighterThan method:
+
+```bash
+if (yourCreatedWeight.isLighterThan(yourOtherWeight))
+```
+
+In the example above you check if yourCreatedWeight is lighter than yourOtherWeight. The same goes for isHeavierThan-method.
 
 **Using WeightManager**
+The WeightManager allows for you to handle multiple weights, you can see it as a collection where you can put the wights and manage/handle them. Here is how it is made:
 
-**An example of Weightmanager**
+```bash
+const yourCreatedManager = new WeightManager()
+```
+
+Here you can use the addWeight method to add it to the manager, and maybe you want to get the lightest weight? See below for a demonstration:
+
+```bash
+yourCreatedManager.addWeight(weight1)
+yourCreatedManager.addWeight(weight2)
+yourCreatedManager.addWeight(weight3)
+yourCreatedManager.addWeight(weight4)
+const yourLightestWeight = yourCreatedManager.getLightestWeight()
+```
+
+You can then simply console.log the 'yourLightestWeight' variable and be presented with the lightest one out of your four weights from the example above.
+
+---
+
+I hope you found these examples useful and please check out the next section for more detailed classes and methods!
 
 .........
 
