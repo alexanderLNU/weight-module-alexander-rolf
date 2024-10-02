@@ -1,6 +1,6 @@
 {
   "name": "weight-module-alexander-rolf",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A module for converting weight units and handling the weights in a manager, all code is written in Javascript.",
   "type": "module",
   "main": "index.js",
