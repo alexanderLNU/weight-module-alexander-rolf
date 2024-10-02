@@ -17,7 +17,7 @@ The module uses ES-modules and you will be needing version 14 or newer of Node.
 **To install the module simply open a new Terminal-window and enter:**
 
 ```bash
-npm install weight-module-alexander-rolf
+npm install weight-module-alexander-rolf@latest
 ```
 
 ## Using the module
