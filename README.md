@@ -54,9 +54,9 @@ This will then convert your 10 kilograms into 10000 grams.
 Here you can see an example of how you could multiply a weight by any number of times. Let's say we want to multiply our weight by 3:
 
 ```bash
-const yourCreatedWeight = new Weight(3, 'kg') // Create a weight.
-const yourMultipliedWeight = yourCreatedWeight.multiply(3) // Multiply the weight using the multiply method.
-console.log(yourMultipliedWeight.toString()) // Will give the output of "9 kg".
+const yourCreatedWeight = new Weight(3, 'kg')                  // Create a weight.
+const yourMultipliedWeight = yourCreatedWeight.multiply(3)     // Multiply the weight using the multiply method.
+console.log(yourMultipliedWeight.toString())                   // Will give the output of "9 kg".
 ```
 
 **An example of comparing weights:**
