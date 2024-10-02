@@ -113,7 +113,7 @@ Weight
 
 ## Methods for Class #1 - Weight
 
-**(1.)** convert(newWeightUnit) - This method simply converts a weight to a new unit.
+**(1.)** `bash convert(newWeightUnit) ` - This method simply converts a weight to a new unit.
 
 **Parameters:** newWeightUnit (string) - This is the new unit that we want to convert our weight into.
 **What it returns:** It resturns the converted weight in a new instance of Weight.
