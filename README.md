@@ -91,13 +91,11 @@ You can then simply console.log the 'yourLightestWeight' variable and be present
 
 I hope you found these examples useful and please check out the next section for more detailed classes and methods!
 
-.........
-
 ## Classes and their Methods
 
 ## Class #1 - Weight
 
-The first class present in the module is the 'Weight'-class and it is presented below with its methods. With the methods you can do a lot of different things e.g convert, manipulate and create weights.
+The first class present in the module is the `Weight`-class and it is presented below with its methods. With the methods you can do a lot of different things e.g convert, manipulate and create weights.
 
 **The Class Name:**
 
@@ -110,6 +108,13 @@ The first class present in the module is the 'Weight'-class and it is presented 
 - `Throws error` if the parameters are invalid. E.g weight is not a valid number och weightUnit is not a valid unit of weight.
 
 ## Class #2 - WeightManager
+
+The second class present in the module is the `WeightManager`-class which works as like a manager for a collection of different instances of `Weight`. Further down the page you can explore more about what these methods can do!
+
+**The Class Name:**
+
+`WeightManager`
+**Returns:** A new `WeightManager` instance.
 
 ## Methods for Class #1 - Weight
 
@@ -137,6 +142,52 @@ The first class present in the module is the 'Weight'-class and it is presented 
 **What it returns:** A new instance of weight with the subtracted weuight value.
 
 - `Throws error` if the parameter otherWeight is not a valid instance of Weight.
+
+**(4.)** `toString()` - This method returns a string with the weight and the weightunit.
+
+**What it returns:** Method returns a string where the weight comes first followed by the unit. E.g "5 kg"
+
+**(5.)** `divide(number)` - This method divides the weight.
+
+**Parameters:** `number (number)` - The number to divide with.
+**What it returns:** A new instance of weight with the divided wuight value.
+
+- `Throws error` if the parameter is 0 or invalid.
+
+**(6.)** `multiply(number)` - This method multiplies the weight.
+
+**Parameters:** `number (number)` - The number to mulitply with.
+**What it returns:** A new instance of weight with the multiplied weight value.
+
+- `Throws error` if the parameter is invalid.
+
+**(7.)** `isLighterThan(otherWeight)` - This method compares if your weight is lighter than the other weight you are comparing it with.
+
+**Parameters:** `otherWeight (Weight)` - Weight that will be compared.
+**What it returns:** Returns a `boolean`. True if this weight is lighter, false if not.
+
+- `Throws error` if the parameter otherWeight is not a valid instance of Weight.
+
+**(8.)** `hasSameWeightAs(otherWeight)` - This method checks if your weight is equal to another weight of your choosing.
+
+**Parameters:** `otherWeight (Weight)` - Weight that will be compared.
+**What it returns:** Returns a `boolean`. True if this weight is equal, false if not.
+
+- `Throws error` if the parameter otherWeight is not a valid instance of Weight.
+
+**(9.)** `isHeavierThan(otherWeight)` - This method compares if your weight is heavier than the other weight you are comparing it with.
+
+**Parameters:** `otherWeight (Weight)` - Weight that will be compared.
+**What it returns:** Returns a `boolean`. True if this weight is heavier, false if not.
+
+- `Throws error` if the parameter otherWeight is not a valid instance of Weight.
+
+**(10.)** `fromTextInput(userInput)` - This method parses a string from e.g a user and creates a new instance of Weight. E.g "5 kg".
+
+**Parameters:** `userInput (string)` - The string that will be parsed.
+**What it returns:** A new instance of weight.
+
+- `Throws error` if either the unit is not valid or the format of the input is invalid.
 
 ## Methods for Class #2 - WeightManager
 
