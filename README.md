@@ -203,7 +203,63 @@ The second class present in the module is the `WeightManager`-class which works 
 
 - `Throws error` if either the unit is not valid or the format of the input is invalid.
 
+---
+
 ## Methods for Class #2 - WeightManager
+
+**(1.)** `removeWeight(weight)` - This method removes a instance of weight from the manager/collection.
+
+**Parameters:** `weight (Weight)` - Weight that you want to remove.
+**What it returns:** Returns a boolean. True if removed, false if not.
+
+---
+
+**(2.)** `addWeight(weight)` - This method adds a instance of weight to the manager/collection.
+
+**Parameters:** `weight (Weight)` - Weight that you want to add.
+
+- `Throws error` if the parameter weight is not a valid instance of Weight.
+
+---
+
+**(3.)** `numberOfWeights()` - Gets you the number of weights in the manager/collection.
+
+**What it returns:** The actual number/count of weights that are in the manager/collection.
+
+---
+
+**(4.)** `getTotalWeight(weightUnit = 'g')` - Sums up and calculate total weight in specified unit, grams by default.
+
+**Parameters:** `weightUnit (string)` - The weight unit that you want thew total weight in.
+**What it returns:** A new instance of weight with the total weight and specified unit.
+
+- `Throws error` if the parameter is a invalid unit.
+
+---
+
+**(5.)** `getAverageWeight(weightUnit = 'g')` - Gets you the average weight in the unit you specifiy, grams by default.
+
+**What it returns:** A new instance of weight with average weight.
+
+- `Throws error` if there are no weights in the manager/collection or if the parameter is a invalid unit.
+
+---
+
+**(6.)** `getHeaviestWeight()` - This method returns the heaviest instance of Weight in the collection.
+
+**What it returns:** The instance of weight that is the heaviest.
+
+- `Throws error` if there are no weights in the manager/collection.
+
+---
+
+**(7.)** `getLightestWeight()` - This method returns the lightest instance of Weight in the collection.
+
+**What it returns:** The instance of weight that is the lightest.
+
+- `Throws error` if there are no weights in the manager/collection.
+
+---
 
 ## Running the tests
 
