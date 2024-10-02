@@ -95,6 +95,39 @@ I hope you found these examples useful and please check out the next section for
 
 ## Classes and their Methods
 
+The first class present in the module is the 'Weight'-class and it is presnted below with its methods.
+
+**The Class Name:**
+
+Weight
+
+**Parameters:**
+
+- weight (number) - Represents the weight and has to be a number.
+- weightUnit (string) - Represents the unit of the weight e.g 'g' or 'lb'
+
+**Exceptionhandling:**
+
+- Throws error if the parameters are invalid. E.g weight is not a valid number och weightUnit is not a valid unit of weight.
+
+**The methods of the Weight-class**
+
+**The Method Name:**
+
+convert(newWeightUnit) - This method simply converts a weight to a new unit.
+
+**Parameters:**
+
+- newWeightUnit (string) - This is the new unit that we want to convert our weight into.
+
+**Returns:**
+
+- It resturns the converted weight in a new instance of Weight.
+
+**Exceptionhandling:**
+
+- Throws error if the parameter newWeightUnit is not a valid unit of weight.
+
 ## Running the tests
 
 **NOTE:** You will need npm and Node.js, as well as Jest as a devdependency.
