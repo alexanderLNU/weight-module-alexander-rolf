@@ -143,9 +143,13 @@ The second class present in the module is the `WeightManager`-class which works 
 
 - `Throws error` if the parameter otherWeight is not a valid instance of Weight.
 
+---
+
 **(4.)** `toString()` - This method returns a string with the weight and the weightunit.
 
 **What it returns:** Method returns a string where the weight comes first followed by the unit. E.g "5 kg"
+
+---
 
 **(5.)** `divide(number)` - This method divides the weight.
 
@@ -154,12 +158,16 @@ The second class present in the module is the `WeightManager`-class which works 
 
 - `Throws error` if the parameter is 0 or invalid.
 
+---
+
 **(6.)** `multiply(number)` - This method multiplies the weight.
 
 **Parameters:** `number (number)` - The number to mulitply with.
 **What it returns:** A new instance of weight with the multiplied weight value.
 
 - `Throws error` if the parameter is invalid.
+
+---
 
 **(7.)** `isLighterThan(otherWeight)` - This method compares if your weight is lighter than the other weight you are comparing it with.
 
@@ -168,6 +176,8 @@ The second class present in the module is the `WeightManager`-class which works 
 
 - `Throws error` if the parameter otherWeight is not a valid instance of Weight.
 
+---
+
 **(8.)** `hasSameWeightAs(otherWeight)` - This method checks if your weight is equal to another weight of your choosing.
 
 **Parameters:** `otherWeight (Weight)` - Weight that will be compared.
@@ -175,12 +185,16 @@ The second class present in the module is the `WeightManager`-class which works 
 
 - `Throws error` if the parameter otherWeight is not a valid instance of Weight.
 
+---
+
 **(9.)** `isHeavierThan(otherWeight)` - This method compares if your weight is heavier than the other weight you are comparing it with.
 
 **Parameters:** `otherWeight (Weight)` - Weight that will be compared.
 **What it returns:** Returns a `boolean`. True if this weight is heavier, false if not.
 
 - `Throws error` if the parameter otherWeight is not a valid instance of Weight.
+
+---
 
 **(10.)** `fromTextInput(userInput)` - This method parses a string from e.g a user and creates a new instance of Weight. E.g "5 kg".
 
