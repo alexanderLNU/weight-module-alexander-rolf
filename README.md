@@ -101,42 +101,42 @@ The first class present in the module is the 'Weight'-class and it is presented 
 
 **The Class Name:**
 
-Weight
+`Weight`
 
 **Parameters:**
 
-- weight (number) - Represents the weight and has to be a number.
-- weightUnit (string) - Represents the unit of the weight e.g 'g' or 'lb'
-- Throws error if the parameters are invalid. E.g weight is not a valid number och weightUnit is not a valid unit of weight.
+- `weight (number)` - Represents the weight and has to be a number.
+- `weightUnit (string)` - Represents the unit of the weight e.g 'g' or 'lb'
+- `Throws error` if the parameters are invalid. E.g weight is not a valid number och weightUnit is not a valid unit of weight.
 
 ## Class #2 - WeightManager
 
 ## Methods for Class #1 - Weight
 
-**(1.)** `bash convert(newWeightUnit) ` - This method simply converts a weight to a new unit.
+**(1.)** `convert(newWeightUnit) ` - This method simply converts a weight to a new unit.
 
-**Parameters:** newWeightUnit (string) - This is the new unit that we want to convert our weight into.
+**Parameters:** `newWeightUnit (string)` - This is the new unit that we want to convert our weight into.
 **What it returns:** It resturns the converted weight in a new instance of Weight.
 
-- Throws error if the parameter newWeightUnit is not a valid unit of weight.
+- `Throws error` if the parameter newWeightUnit is not a valid unit of weight.
 
 ---
 
-**(2.)** add(otherWeight) - This method adds a weight to your weight.
+**(2.)** `add(otherWeight)` - This method adds a weight to your weight.
 
-**Parameters:** otherWeight(Weight) - The other weight that you are adding.
+**Parameters:** `otherWeight(Weight)` - The other weight that you are adding.
 **What it returns:** Total weight in a new instance of Weight.
 
-- Throws error if the parameter otherWeight is not a valid instance of Weight.
+- `Throws error` if the parameter otherWeight is not a valid instance of Weight.
 
 ---
 
-**(3.)** subtract(otherWeight) - This method subtracts another weight from your weight.
+**(3.)** `subtract(otherWeight)` - This method subtracts another weight from your weight.
 
-**Parameters:** otherWeight(Weight) - The other weight that you are subtracting.
+**Parameters:** `otherWeight(Weight)` - The other weight that you are subtracting.
 **What it returns:** A new instance of weight with the subtracted weuight value.
 
-- Throws error if the parameter otherWeight is not a valid instance of Weight.
+- `Throws error` if the parameter otherWeight is not a valid instance of Weight.
 
 ## Methods for Class #2 - WeightManager
 
