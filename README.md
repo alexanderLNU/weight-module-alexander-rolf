@@ -261,6 +261,18 @@ The second class present in the module is the `WeightManager`-class which works 
 
 ---
 
+**(8.)** `mergeManagersData(otherWeightManager)` - This method merges the weights in the other instance WeightManager to this instance of WeightManager.
+
+**Parameters:** `otherWeightManager (WeightManager)` - Another instance of WeightManager that contains the weights you want to merge.
+
+- `Throws error` if `otherWeightManager` is not a instance of WeightManager.
+
+---
+
+**(9.)** `eraseAllWeights()` - This method erases all the weights in the manager/collection.
+
+---
+
 ## Running the tests
 
 **NOTE:** You will need npm and Node.js, as well as Jest as a devdependency.

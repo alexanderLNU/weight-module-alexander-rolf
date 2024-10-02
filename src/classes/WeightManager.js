@@ -133,4 +133,24 @@ export default class WeightManager {
     }
     return lightestWeight
   }
+
+  /**
+   * This method merges the weights in the other instance WeightManager to this instance of WeightManager.
+   * THis enables using different batches of weights together for different purposes.
+   *
+   * @param {WeightManager} otherWeightManager Another WeightManager instance that we want to merge with this instance.
+   */
+  mergeManagersData (otherWeightManager) {
+    if (!(otherWeightManager instanceof WeightManager)) {
+      throw new Error('The argument has to be a instance of WeightManager!')
+    }
+    otherWeightManager.weights.forEach(weight => this.addWeight(weight))
+  }
+
+  /**
+   * This method erases all the weights in the manager/collection.
+   */
+  eraseAllWeights () {
+    this.weights = []
+  }
 }

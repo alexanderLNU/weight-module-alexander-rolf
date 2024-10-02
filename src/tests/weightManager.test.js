@@ -122,4 +122,30 @@ describe('WeightManager', () => {
     const lightestWeight = weightManager.getLightestWeight()
     expect(lightestWeight).toBe(weight2)
   })
+
+  test('The method mergeManagersData should merge the weights correctly', () => {
+    const weightManager1 = new WeightManager()
+    const weightManager2 = new WeightManager()
+    const weight1 = new Weight(1, 'kg')
+    const weight2 = new Weight(5, 'kg')
+    const weight3 = new Weight(10, 'kg')
+    weightManager1.addWeight(weight1)
+    weightManager1.addWeight(weight2)
+    weightManager2.addWeight(weight3)
+    weightManager1.mergeManagersData(weightManager2) // Merge it
+    expect(weightManager1.weights).toContain(weight1)
+    expect(weightManager1.weights).toContain(weight2)
+    expect(weightManager1.weights).toContain(weight3)
+    expect(weightManager1.numberOfWeights()).toBe(3)
+  })
+
+  test('The method eraseALlWeights should properly erase all weights from the manager/collection', () => {
+    const manager = new WeightManager()
+    const weight1 = new Weight(1, 'g')
+    manager.addWeight(weight1)
+    manager.eraseAllWeights()
+    // It worked?
+    expect(manager.numberOfWeights()).toBe(0)
+    expect(manager.weights).toEqual([])
+  })
 })
