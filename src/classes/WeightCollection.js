@@ -18,7 +18,7 @@ export default class WeightCollection {
    * @param {Weight} weight The instance of Weight that is going to be removed.
    * @returns {boolean}     Returns true if the weight was dound and removed, otherwise returning false.
    */
-  removeWeight (weight) {
+  removeWeightFromCollection (weight) {
     const i = this.weights.indexOf(weight)
     if (i !== -1) { // Is wiehgt in collection? if its not -1 it is there.
       this.weights.splice(i, 1)

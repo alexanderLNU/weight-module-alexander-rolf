@@ -6,14 +6,14 @@ describe('WeightCollection', () => {
     const weightCollection = new WeightCollection()
     const weight = new Weight(5000, 'g')
     weightCollection.addWeightToCollection(weight)
-    const removedWeight = weightCollection.removeWeight(weight)
+    const removedWeight = weightCollection.removeWeightFromCollection(weight)
     expect(removedWeight).toBe(true)
   })
 
-  test('The removeWeight method should return false if the weight is not present', () => {
+  test('The removeWeightFromCollection method should return false if the weight is not present', () => {
     const weightCollection = new WeightCollection()
     const weight = new Weight(5000, 'g')
-    const removedWeight = weightCollection.removeWeight(weight)
+    const removedWeight = weightCollection.removeWeightFromCollection(weight)
     expect(removedWeight).toBe(false)
   })
 
@@ -46,7 +46,7 @@ describe('WeightCollection', () => {
     const weight2 = new Weight(1, 'kg')
     weightCollection.addWeightToCollection(weight1)
     weightCollection.addWeightToCollection(weight2)
-    weightCollection.removeWeight(weight1)
+    weightCollection.removeWeightFromCollection(weight1)
     expect(weightCollection.numberOfWeights()).toBe(1)
   })
 
