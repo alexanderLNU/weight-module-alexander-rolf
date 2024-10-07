@@ -5,7 +5,7 @@ describe('WeightCollection', () => {
   test('Remove weight instance from collection', () => {
     const weightCollection = new WeightCollection()
     const weight = new Weight(5000, 'g')
-    weightCollection.addWeight(weight)
+    weightCollection.addWeightToCollection(weight)
     const removedWeight = weightCollection.removeWeight(weight)
     expect(removedWeight).toBe(true)
   })
@@ -20,14 +20,14 @@ describe('WeightCollection', () => {
   test('Add weight instance from collection', () => {
     const weightCollection = new WeightCollection()
     const weight = new Weight(5000, 'g')
-    weightCollection.addWeight(weight)
+    weightCollection.addWeightToCollection(weight)
     expect(weightCollection.weights).toContain(weight)
     expect(weightCollection.numberOfWeights()).toBe(1)
   })
 
-  test('The addWeight method should throw error if your trying to add a non-weight instance', () => {
+  test('The addWeightToCollection method should throw error if your trying to add a non-weight instance', () => {
     const weightCollection = new WeightCollection()
-    expect(() => weightCollection.addWeight('WRONG')).toThrow('The argument has to be an instance of Weight!')
+    expect(() => weightCollection.addWeightToCollection('WRONG')).toThrow('The argument has to be an instance of Weight!')
   })
 
   test('The method numberOfWeights returns correct amount of weights whjen they are added', () => {
@@ -35,8 +35,8 @@ describe('WeightCollection', () => {
     expect(weightCollection.numberOfWeights()).toBe(0)
     const weight1 = new Weight(5000, 'g')
     const weight2 = new Weight(1, 'kg')
-    weightCollection.addWeight(weight1)
-    weightCollection.addWeight(weight2)
+    weightCollection.addWeightToCollection(weight1)
+    weightCollection.addWeightToCollection(weight2)
     expect(weightCollection.numberOfWeights()).toBe(2)
   })
 
@@ -44,8 +44,8 @@ describe('WeightCollection', () => {
     const weightCollection = new WeightCollection()
     const weight1 = new Weight(5000, 'g')
     const weight2 = new Weight(1, 'kg')
-    weightCollection.addWeight(weight1)
-    weightCollection.addWeight(weight2)
+    weightCollection.addWeightToCollection(weight1)
+    weightCollection.addWeightToCollection(weight2)
     weightCollection.removeWeight(weight1)
     expect(weightCollection.numberOfWeights()).toBe(1)
   })
@@ -57,8 +57,8 @@ describe('WeightCollection', () => {
 
   test('The method getTotalWeight returns the total weuight of all weights', () => {
     const weightCollection = new WeightCollection()
-    weightCollection.addWeight(new Weight(5000, 'g'))
-    weightCollection.addWeight(new Weight(1, 'kg'))
+    weightCollection.addWeightToCollection(new Weight(5000, 'g'))
+    weightCollection.addWeightToCollection(new Weight(1, 'kg'))
     const weight = weightCollection.getTotalWeight()
     expect(weight.weight).toBe(6000)
     expect(weight.weightUnit).toBe('g')
@@ -66,9 +66,9 @@ describe('WeightCollection', () => {
 
   test('The method getTotalWeight should give the total weuight in a specific wanted unit', () => {
     const weightCollection = new WeightCollection()
-    weightCollection.addWeight(new Weight(5000, 'g'))
-    weightCollection.addWeight(new Weight(1, 'kg'))
-    weightCollection.addWeight(new Weight(20, 'lb'))
+    weightCollection.addWeightToCollection(new Weight(5000, 'g'))
+    weightCollection.addWeightToCollection(new Weight(1, 'kg'))
+    weightCollection.addWeightToCollection(new Weight(20, 'lb'))
     const weight = weightCollection.getTotalWeight('kg')
     const TotalKgShouldBe = (5000 + 1000 + 9071.8474) / 1000
     expect(weight.weight).toBeCloseTo(TotalKgShouldBe)
@@ -77,8 +77,8 @@ describe('WeightCollection', () => {
 
   test('The method getAverageWeight should return average weight in the DEFAULT unit when we do not specify', () => {
     const weightCollection = new WeightCollection()
-    weightCollection.addWeight(new Weight(5000, 'g'))
-    weightCollection.addWeight(new Weight(6000, 'g'))
+    weightCollection.addWeightToCollection(new Weight(5000, 'g'))
+    weightCollection.addWeightToCollection(new Weight(6000, 'g'))
     const avgWeight = weightCollection.getAverageWeight()
     const avgWeightShouldBe = (5000 + 6000) / 2
     expect(avgWeight.weight).toBe(avgWeightShouldBe)
@@ -87,8 +87,8 @@ describe('WeightCollection', () => {
 
   test('The method getAverageWeight should return average weight in the wanted unit that is being chosen/specified', () => {
     const weightCollection = new WeightCollection()
-    weightCollection.addWeight(new Weight(5, 'kg'))
-    weightCollection.addWeight(new Weight(6000, 'g'))
+    weightCollection.addWeightToCollection(new Weight(5, 'kg'))
+    weightCollection.addWeightToCollection(new Weight(6000, 'g'))
     const avgWeight = weightCollection.getAverageWeight('kg')
     const avgWeightShouldBe = (5 + 6) / 2
     expect(avgWeight.weight).toBe(avgWeightShouldBe)
@@ -101,10 +101,10 @@ describe('WeightCollection', () => {
     const weight2 = new Weight(1, 'kg')
     const weight3 = new Weight(20, 'lb')
     const weight4 = new Weight(100, 'kg')
-    weightCollection.addWeight(weight1)
-    weightCollection.addWeight(weight2)
-    weightCollection.addWeight(weight3)
-    weightCollection.addWeight(weight4)
+    weightCollection.addWeightToCollection(weight1)
+    weightCollection.addWeightToCollection(weight2)
+    weightCollection.addWeightToCollection(weight3)
+    weightCollection.addWeightToCollection(weight4)
     const heaviestWeight = weightCollection.getHeaviestWeight()
     expect(heaviestWeight).toBe(weight4)
   })
@@ -115,10 +115,10 @@ describe('WeightCollection', () => {
     const weight2 = new Weight(1, 'kg')
     const weight3 = new Weight(20, 'lb')
     const weight4 = new Weight(100, 'kg')
-    weightCollection.addWeight(weight1)
-    weightCollection.addWeight(weight2)
-    weightCollection.addWeight(weight3)
-    weightCollection.addWeight(weight4)
+    weightCollection.addWeightToCollection(weight1)
+    weightCollection.addWeightToCollection(weight2)
+    weightCollection.addWeightToCollection(weight3)
+    weightCollection.addWeightToCollection(weight4)
     const lightestWeight = weightCollection.getLightestWeight()
     expect(lightestWeight).toBe(weight2)
   })
@@ -129,9 +129,9 @@ describe('WeightCollection', () => {
     const weight1 = new Weight(1, 'kg')
     const weight2 = new Weight(5, 'kg')
     const weight3 = new Weight(10, 'kg')
-    weightCollection1.addWeight(weight1)
-    weightCollection1.addWeight(weight2)
-    weightCollection2.addWeight(weight3)
+    weightCollection1.addWeightToCollection(weight1)
+    weightCollection1.addWeightToCollection(weight2)
+    weightCollection2.addWeightToCollection(weight3)
     weightCollection1.mergeManagersData(weightCollection2) // Merge it
     expect(weightCollection1.weights).toContain(weight1)
     expect(weightCollection1.weights).toContain(weight2)
@@ -142,7 +142,7 @@ describe('WeightCollection', () => {
   test('The method eraseALlWeights should properly erase all weights from the collection', () => {
     const manager = new WeightCollection()
     const weight1 = new Weight(1, 'g')
-    manager.addWeight(weight1)
+    manager.addWeightToCollection(weight1)
     manager.eraseAllWeights()
     // It worked?
     expect(manager.numberOfWeights()).toBe(0)

@@ -75,13 +75,13 @@ The WeightCollection allows for you to handle multiple weights, you can see it a
 const yourCreatedManager = new WeightCollection()
 ```
 
-Here you can use the addWeight method to add it to the collection, and maybe you want to get the lightest weight? See below for a demonstration:
+Here you can use the addWeightToCollection method to add it to the collection, and maybe you want to get the lightest weight? See below for a demonstration:
 
 ```bash
-yourCreatedCollection.addWeight(weight1)
-yourCreatedCollection.addWeight(weight2)
-yourCreatedCollection.addWeight(weight3)
-yourCreatedCollection.addWeight(weight4)
+yourCreatedCollection.addWeightToCollection(weight1)
+yourCreatedCollection.addWeightToCollection(weight2)
+yourCreatedCollection.addWeightToCollection(weight3)
+yourCreatedCollection.addWeightToCollection(weight4)
 const yourLightestWeight = yourCreatedCollection.getLightestWeight()
 ```
 
@@ -214,7 +214,7 @@ The second class present in the module is the `WeightCollection`-class which wor
 
 ---
 
-**(2.)** `addWeight(weight)` - This method adds a instance of weight to the collection.
+**(2.)** `addWeightToCollection(weight)` - This method adds a instance of weight to the collection.
 
 **Parameters:** `weight (Weight)` - Weight that you want to add.
 

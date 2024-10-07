@@ -32,7 +32,7 @@ export default class WeightCollection {
    *
    * @param {Weight} weight The instance of Weight that is going to be added to the collection.
    */
-  addWeight (weight) {
+  addWeightToCollection (weight) {
     if (!(weight instanceof Weight)) {
       throw new Error('The argument has to be an instance of Weight!')
     }
@@ -144,7 +144,7 @@ export default class WeightCollection {
     if (!(otherWeightCollection instanceof WeightCollection)) {
       throw new Error('The argument has to be a instance of WeightCollection!')
     }
-    otherWeightCollection.weights.forEach(weight => this.addWeight(weight))
+    otherWeightCollection.weights.forEach(weight => this.addWeightToCollection(weight))
   }
 
   /**
