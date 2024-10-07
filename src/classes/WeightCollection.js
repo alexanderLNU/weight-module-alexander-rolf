@@ -4,9 +4,9 @@ import Weight from './Weight.js'
 /**
  * This class manages a collection of Weight instances.
  */
-export default class WeightManager {
+export default class WeightCollection {
   /**
-   * Constructor creates a neww instance of WeightManager.
+   * Constructor creates a neww instance of WeightCollection.
    */
   constructor () {
     this.weights = []
@@ -135,16 +135,16 @@ export default class WeightManager {
   }
 
   /**
-   * This method merges the weights in the other instance WeightManager to this instance of WeightManager.
+   * This method merges the weights in the other instance WeightCollection to this instance of WeightCollection.
    * THis enables using different batches of weights together for different purposes.
    *
-   * @param {WeightManager} otherWeightManager Another WeightManager instance that we want to merge with this instance.
+   * @param {WeightCollection} otherWeightCollection Another WeightCollection instance that we want to merge with this instance.
    */
-  mergeManagersData (otherWeightManager) {
-    if (!(otherWeightManager instanceof WeightManager)) {
-      throw new Error('The argument has to be a instance of WeightManager!')
+  mergeManagersData (otherWeightCollection) {
+    if (!(otherWeightCollection instanceof WeightCollection)) {
+      throw new Error('The argument has to be a instance of WeightCollection!')
     }
-    otherWeightManager.weights.forEach(weight => this.addWeight(weight))
+    otherWeightCollection.weights.forEach(weight => this.addWeight(weight))
   }
 
   /**
