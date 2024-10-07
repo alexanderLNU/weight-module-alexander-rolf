@@ -75,7 +75,7 @@ The WeightCollection allows for you to handle multiple weights, you can see it a
 const yourCreatedManager = new WeightCollection()
 ```
 
-Here you can use the addWeightToCollection method to add it to the collection, and maybe you want to get the lightest weight? See below for a demonstration:
+Here you can use the addWeightToCollection method to addWeightsTogether it to the collection, and maybe you want to get the lightest weight? See below for a demonstration:
 
 ```bash
 yourCreatedCollection.addWeightToCollection(weight1)
@@ -127,7 +127,7 @@ The second class present in the module is the `WeightCollection`-class which wor
 
 ---
 
-**(2.)** `add(otherWeight)` - This method adds a weight to your weight.
+**(2.)** `addWeightsTogether(otherWeight)` - This method adds a weight to your weight.
 
 **Parameters:** `otherWeight(Weight)` - The other weight that you are adding.
 **What it returns:** Total weight in a new instance of Weight.
@@ -207,7 +207,7 @@ The second class present in the module is the `WeightCollection`-class which wor
 
 ## Methods for Class #2 - WeightCollection
 
-**(1.)** `removeWeight(weight)` - This method removes a instance of weight from the collection.
+**(1.)** `removeWeightFromCollection(weight)` - This method removes a instance of weight from the collection.
 
 **Parameters:** `weight (Weight)` - Weight that you want to remove.
 **What it returns:** Returns a boolean. True if removed, false if not.

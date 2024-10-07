@@ -45,7 +45,7 @@ export default class Weight {
    * @param {Weight} otherWeight The other instance of Weight that should be added to this instance.
    * @returns {Weight}           New instance of Weight with the total sum of the two weights.
    */
-  add (otherWeight) {
+  addWeightsTogether (otherWeight) {
     if (!(otherWeight instanceof Weight)) {
       throw new Error('The argument has to be an instance of Weight!')
     }
