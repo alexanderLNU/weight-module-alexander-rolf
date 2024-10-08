@@ -55,6 +55,7 @@ export default class WeightCollection {
    * @returns {Weight}          A new instance of Weight with the total weight in wanted unit.
    */
   getTotalWeight (weightUnit = 'g') {
+    this.validateCollectionHasWeights()
     this.validateWeightUnit(weightUnit)
     const totalWeightInGrams = this.addUpAllWeightsInGrams()
     return this.convertTotalWeightToWantedUnit(totalWeightInGrams, weightUnit)
@@ -92,26 +93,36 @@ export default class WeightCollection {
   }
 
   /**
-   * This method returns avg weight of all the instances of Weight in the collection.
+   * This method returns avg weight of all the instances of Weight in the collection in the wanted unit.
    *
    * @param {string} weightUnit Unit to return avg weight in, grams is the default set unit.
    * @returns {Weight}          A new instance of Weight with the average weight and wanted unit.
    */
   getAverageWeight (weightUnit = 'g') {
+    this.validateCollectionHasWeights()
+    this.validateWeightUnit(weightUnit)
+    const totalWeightInGrams = this.addUpAllWeightsInGrams()
+    const averageWeightInGrams = this.calculateTheAverageWeight(totalWeightInGrams)
+    return this.convertTotalWeightToWantedUnit(averageWeightInGrams, weightUnit)
+  }
+
+  /**
+   * This method calculates average weiight in grams.
+   *
+   * @param {number} totalWeightInGrams Total weight of all the Weight instances in the collection in grams.
+   * @returns {number}                  Returns average weight in grams.
+   */
+  calculateTheAverageWeight (totalWeightInGrams) {
+    return totalWeightInGrams / this.weights.length
+  }
+
+  /**
+   * This method simply validates if collection has any weights in it.
+   */
+  validateCollectionHasWeights () {
     if (this.weights.length === 0) {
       throw new Error('There are no weights in the collection!')
     }
-    if (!unitValidator(weightUnit)) {
-      throw new Error('You are trying to use a invalid unit!')
-    }
-
-    // Get sum in grams
-    const totalWeight = this.getTotalWeight('g').weight
-    const avgWeight = totalWeight / this.weights.length
-
-    // Convert avg weight to wanted unit
-    const avgWeightInWantedUnit = new Weight(avgWeight, 'g').convert(weightUnit)
-    return avgWeightInWantedUnit
   }
 
   /**
@@ -120,10 +131,7 @@ export default class WeightCollection {
    * @returns {Weight} Returns the heaviest instance of Weight in the collection.
    */
   getHeaviestWeight () {
-    if (this.weights.length === 0) {
-      throw new Error('There are no weights in the collection!')
-    }
-
+    this.validateCollectionHasWeights()
     let heaviestWeight = this.weights[0]
     // Update when a heavier weight is found
     for (const weight of this.weights) {
@@ -140,10 +148,7 @@ export default class WeightCollection {
    * @returns {Weight} Returns the lightest instance of Weight in the collection.
    */
   getLightestWeight () {
-    if (this.weights.length === 0) {
-      throw new Error('There are no weights in the collection!')
-    }
-
+    this.validateCollectionHasWeights()
     let lightestWeight = this.weights[0]
     // Update when a lighter weight is found
     for (const weight of this.weights) {
