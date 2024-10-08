@@ -49,26 +49,46 @@ export default class WeightCollection {
   }
 
   /**
-   * This method returns total weight of all weights in the manager and conerts it to wanted unit.
+   * This method returns total weight of all weights in the collection in the wanted unit.
    *
-   * @param {string} weightUnit Unit that we want the total weight to be, grams is set by default.
-   * @returns {Weight}          A new instance of Weight with the total weight and wanted unit.
+   * @param {string} weightUnit Unit that the total weight should be in, grams is the default set unit.
+   * @returns {Weight}          A new instance of Weight with the total weight in wanted unit.
    */
   getTotalWeight (weightUnit = 'g') {
+    this.validateWeightUnit(weightUnit)
+    const totalWeightInGrams = this.addUpAllWeightsInGrams()
+    return this.convertTotalWeightToWantedUnit(totalWeightInGrams, weightUnit)
+  }
+
+  /**
+   * This method checks if the written unit is a valid weight unit.
+   *
+   * @param {string} weightUnit The weight unit that is going to be validated.
+   */
+  validateWeightUnit (weightUnit) {
     if (!unitValidator(weightUnit)) {
       throw new Error('You are trying to use a invalid unit!')
     }
+  }
 
-    // Convert all weights we have to grams and sum them up.
-    let sumOfWeightsInGrams = 0
-    for (const weight of this.weights) {
-      const weightAsGrams = weight.convert('g').weight
-      sumOfWeightsInGrams += weightAsGrams
-    }
+  /**
+   * This method adds up all the weights that is in the collection to get the total weight in grams.
+   *
+   * @returns {number} The total weight of all the weights in the collection in grams.
+   */
+  addUpAllWeightsInGrams () {
+    return this.weights.reduce((sum, weight) => { return sum + weight.convert('g').weight }, 0)
+  }
 
-    // Convert total weight to wanted unit.
-    const totalWeightInWantedUnit = new Weight(sumOfWeightsInGrams, 'g').convert(weightUnit)
-    return totalWeightInWantedUnit
+  /**
+   * THis method converts the total weight in grams to the wanted unit.
+   *
+   * @param {number} totalWeightInGrams Total weight in grams that will be converted to wanted unit.
+   * @param {string} weightUnit         The unit that total weight should be in.
+   * @returns {Weight}                  A new instance of Weight with the total weight in wanted unit.
+   */
+  convertTotalWeightToWantedUnit (totalWeightInGrams, weightUnit) {
+    return new Weight(totalWeightInGrams, 'g').convert(weightUnit)
   }
 
   /**
