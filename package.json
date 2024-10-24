@@ -1,13 +1,20 @@
 {
   "name": "weight-module-alexander-rolf",
-  "version": "1.0.1",
-  "description": "A module for converting weight units and handling the weights in a manager, all code is written in Javascript.",
+  "version": "1.0.2",
+  "description": "A module for converting weight units and handling the weights in a collection, all code is written in Javascript.",
   "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "jest --coverage"
   },
-  "keywords": ["weightconverter", "weightmanager", "weight", "converter", "javascript", "module"],
+  "keywords": [
+    "weightconverter",
+    "weightcollection",
+    "weight",
+    "converter",
+    "javascript",
+    "module"
+  ],
   "author": "Alexander Rolf",
   "license": "MIT",
   "devDependencies": {

@@ -82,7 +82,7 @@ describe('Weight', () => {
   test('Adding two instances of weight together', () => {
     const weight1 = new Weight(5000, 'g')
     const weight2 = new Weight(9, 'kg')
-    const totalWeight = weight1.add(weight2)
+    const totalWeight = weight1.addWeightsTogether(weight2)
     expect(totalWeight.weight).toBe(14000)
     expect(totalWeight.weightUnit).toBe('g')
   })
@@ -120,7 +120,7 @@ describe('Weight', () => {
 
   test('Throw error if you are trying to add a non-weight instance', () => {
     const weight = new Weight(5000, 'g')
-    expect(() => weight.add(100)).toThrow('The argument has to be an instance of Weight!')
+    expect(() => weight.addWeightsTogether(100)).toThrow('The argument has to be an instance of Weight!')
   })
 
   test('See if class handles decimals correctly', () => {

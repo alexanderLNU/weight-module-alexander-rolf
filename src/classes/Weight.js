@@ -45,7 +45,7 @@ export default class Weight {
    * @param {Weight} otherWeight The other instance of Weight that should be added to this instance.
    * @returns {Weight}           New instance of Weight with the total sum of the two weights.
    */
-  add (otherWeight) {
+  addWeightsTogether (otherWeight) {
     if (!(otherWeight instanceof Weight)) {
       throw new Error('The argument has to be an instance of Weight!')
     }
@@ -162,17 +162,48 @@ export default class Weight {
   }
 
   /**
-   * This method creates a new instance of Weight from the userInput string
-   * and it also throws error if it is in a wrong format or a non-valid unit.
+   * This method creates a new instance of Weight from the userInput string.
    *
-   * @param {string} userInput The string that is going to be parsed for example '1 kg'.
+   * @param {string} userInput The string input which is weight and unit.
    * @returns {Weight}         A new instance of Weight with the userInput weight and unit.
    */
   static fromTextInput (userInput) {
+    this.validateTextInput(userInput)
+    const { weight, weightUnit } = this.parseUserInput(userInput)
+    this.validateUnitInput(weightUnit)
+
+    return new Weight(weight, weightUnit)
+  }
+
+  /**
+   * This method checks that the userInput is a string.
+   *
+   * @param {string} userInput The input that is going to be validated.
+   */
+  static validateTextInput (userInput) {
     if (typeof userInput !== 'string') {
       throw new Error('Input must be a string!')
     }
+  }
 
+  /**
+   * This method checks that the unit is a valid weight unit.
+   *
+   * @param {string} weightUnit The unit that is going to be validated.
+   */
+  static validateUnitInput (weightUnit) {
+    if (!unitValidator(weightUnit)) {
+      throw new Error('You are trying to use a invalid unit!')
+    }
+  }
+
+  /**
+   * This method parses the userInput to extract both weight and its unit from the string.
+   *
+   * @param {string} userInput The string input which is weight and unit.
+   * @returns {object}         Object with weight and weightUnit.
+   */
+  static parseUserInput (userInput) {
     const regexRule = /^(-?\d+(?:\.\d+)?)\s*(\w+)$/
     const inputTrimmed = userInput.trim()
     const inputFixed = inputTrimmed.replace(/,/g, '.') // Commas to dots
@@ -185,10 +216,6 @@ export default class Weight {
     const weight = parseFloat(checkIfMatch[1])
     const weightUnit = checkIfMatch[2]
 
-    if (!unitValidator(weightUnit)) {
-      throw new Error('You are trying to use a invalid unit!')
-    }
-
-    return new Weight(weight, weightUnit)
+    return { weight, weightUnit }
   }
 }

@@ -1,0 +1,36 @@
+Date : 2024-10-04 12:57:17
+Directory : c:\Users\alexa\OneDrive\Skrivbord\uppgift_L2\src
+Total : 9 files,  516 codes, 146 comments, 111 blanks, all 773 lines
+
+Languages
++------------+------------+------------+------------+------------+------------+
+| language   | files      | code       | comment    | blank      | total      |
++------------+------------+------------+------------+------------+------------+
+| JavaScript |          9 |        516 |        146 |        111 |        773 |
++------------+------------+------------+------------+------------+------------+
+
+Directories
++------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                         | files      | code       | comment    | blank      | total      |
++------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                            |          9 |        516 |        146 |        111 |        773 |
+| . (Files)                                                                    |          3 |         26 |         16 |          9 |         51 |
+| classes                                                                      |          2 |        177 |        128 |         47 |        352 |
+| tests                                                                        |          4 |        313 |          2 |         55 |        370 |
++------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                                                     | language   | code       | comment    | blank      | total      |
++------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| c:\Users\alexa\OneDrive\Skrivbord\uppgift_L2\src\classes\Weight.js           | JavaScript |         96 |         69 |         30 |        195 |
+| c:\Users\alexa\OneDrive\Skrivbord\uppgift_L2\src\classes\WeightCollection.js    | JavaScript |         81 |         59 |         17 |        157 |
+| c:\Users\alexa\OneDrive\Skrivbord\uppgift_L2\src\tests\unitConverter.test.js | JavaScript |         33 |          0 |         11 |         44 |
+| c:\Users\alexa\OneDrive\Skrivbord\uppgift_L2\src\tests\validator.test.js     | JavaScript |         17 |          1 |          3 |         21 |
+| c:\Users\alexa\OneDrive\Skrivbord\uppgift_L2\src\tests\weightClass.test.js   | JavaScript |        128 |          0 |         25 |        153 |
+| c:\Users\alexa\OneDrive\Skrivbord\uppgift_L2\src\tests\weightCollection.test.js | JavaScript |        135 |          1 |         16 |        152 |
+| c:\Users\alexa\OneDrive\Skrivbord\uppgift_L2\src\unitConverter.js            | JavaScript |         13 |          9 |          5 |         27 |
+| c:\Users\alexa\OneDrive\Skrivbord\uppgift_L2\src\validator.js                | JavaScript |          4 |          6 |          2 |         12 |
+| c:\Users\alexa\OneDrive\Skrivbord\uppgift_L2\src\weightUnits.js              | JavaScript |          9 |          1 |          2 |         12 |
+| Total                                                                        |            |        516 |        146 |        111 |        773 |
++------------------------------------------------------------------------------+------------+------------+------------+------------+------------+

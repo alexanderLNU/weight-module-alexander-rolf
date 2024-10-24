@@ -1,4 +1,4 @@
-import weightUnits from './weightUnits.js'
+import { getWeightUnits } from './weightUnits.js'
 import { unitValidator } from './validator.js'
 
 /**
@@ -10,6 +10,7 @@ import { unitValidator } from './validator.js'
  * @returns {number}             The converted value.
  */
 export function convertUnit (weight, from, to) {
+  const weightUnits = getWeightUnits()
   // Check that value is of the type number and that it is not NaN since that is a number itself.
   if (typeof weight !== 'number' || isNaN(weight)) {
     throw new Error('The value has to be a number!')

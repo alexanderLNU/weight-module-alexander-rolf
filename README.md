@@ -2,7 +2,7 @@
 
 ## Introduction to the module
 
-Weight Module - Alexander Rolf is a module developed in 100% Javascript which is used to convert different weight-units and to manage them in a WeightManager. This is the first version of the module and may be developed further in the future to be even more useful for developers when wanting to convert and manage different units of weights.
+Weight Module - Alexander Rolf is a module developed in 100% Javascript which is used to convert different weight-units and to manage them in a WeightCollection. This is the first version of the module and may be developed further in the future to be even more useful for developers when wanting to convert and manage different units of weights.
 
 ## Installation
 
@@ -27,10 +27,10 @@ To use my Weight Module it is required that you import the classes to start star
 **Import the modules classes, funtions and the object with the following import statement:**
 
 ```bash
-import { Weight, WeightManager, convertUnit, unitValidator, weightUnits } from 'weight-module-alexander-rolf
+import { Weight, WeightCollection, convertUnit, unitValidator, weightUnits } from 'weight-module-alexander-rolf
 ```
 
-Now you can do different things with my module and I will showcase different use cases for it below. I will start with some practical examples of the Weight-class, followed by the WeightManager-class. These are just some examples so that you can try the module quick and easy, to find more detailed documentation of the classes and the methods you can look at the section below named "Classes and their methods". There is a lot you can do with the weights in this module, for example adding, subtracting, multiplying and dividing but I won't be showing all of this in this section. Therefor I recommend that you read the "Classes and their methods" section and experiment further!
+Now you can do different things with my module and I will showcase different use cases for it below. I will start with some practical examples of the Weight-class, followed by the WeightCollection-class. These are just some examples so that you can try the module quick and easy, to find more detailed documentation of the classes and the methods you can look at the section below named "Classes and their methods". There is a lot you can do with the weights in this module, for example adding, subtracting, multiplying and dividing but I won't be showing all of this in this section. Therefor I recommend that you read the "Classes and their methods" section and experiment further!
 
 **Creating a weight:**
 
@@ -68,21 +68,21 @@ if (yourCreatedWeight.isLighterThan(yourOtherWeight))
 
 In the example above you check if yourCreatedWeight is lighter than yourOtherWeight. The same goes for isHeavierThan-method.
 
-**Using WeightManager**
-The WeightManager allows for you to handle multiple weights, you can see it as a collection where you can put the wights and manage/handle them. Here is how it is made:
+**Using WeightCollection**
+The WeightCollection allows for you to handle multiple weights, you can see it as a collection where you can put the wights and manage/handle them. Here is how it is made:
 
 ```bash
-const yourCreatedManager = new WeightManager()
+const yourCreatedManager = new WeightCollection()
 ```
 
-Here you can use the addWeight method to add it to the manager, and maybe you want to get the lightest weight? See below for a demonstration:
+Here you can use the addWeightToCollection method to addWeightsTogether it to the collection, and maybe you want to get the lightest weight? See below for a demonstration:
 
 ```bash
-yourCreatedManager.addWeight(weight1)
-yourCreatedManager.addWeight(weight2)
-yourCreatedManager.addWeight(weight3)
-yourCreatedManager.addWeight(weight4)
-const yourLightestWeight = yourCreatedManager.getLightestWeight()
+yourCreatedCollection.addWeightToCollection(weight1)
+yourCreatedCollection.addWeightToCollection(weight2)
+yourCreatedCollection.addWeightToCollection(weight3)
+yourCreatedCollection.addWeightToCollection(weight4)
+const yourLightestWeight = yourCreatedCollection.getLightestWeight()
 ```
 
 You can then simply console.log the 'yourLightestWeight' variable and be presented with the lightest one out of your four weights from the example above.
@@ -107,14 +107,14 @@ The first class present in the module is the `Weight`-class and it is presented 
 - `weightUnit (string)` - Represents the unit of the weight e.g 'g' or 'lb'
 - `Throws error` if the parameters are invalid. E.g weight is not a valid number och weightUnit is not a valid unit of weight.
 
-## Class #2 - WeightManager
+## Class #2 - WeightCollection
 
-The second class present in the module is the `WeightManager`-class which works as like a manager for a collection of different instances of `Weight`. Further down the page you can explore more about what these methods can do!
+The second class present in the module is the `WeightCollection`-class which works as like a manager for a collection of different instances of `Weight`. Further down the page you can explore more about what these methods can do!
 
 **The Class Name:**
 
-`WeightManager`
-**Returns:** A new `WeightManager` instance.
+`WeightCollection`
+**Returns:** A new `WeightCollection` instance.
 
 ## Methods for Class #1 - Weight
 
@@ -127,7 +127,7 @@ The second class present in the module is the `WeightManager`-class which works 
 
 ---
 
-**(2.)** `add(otherWeight)` - This method adds a weight to your weight.
+**(2.)** `addWeightsTogether(otherWeight)` - This method adds a weight to your weight.
 
 **Parameters:** `otherWeight(Weight)` - The other weight that you are adding.
 **What it returns:** Total weight in a new instance of Weight.
@@ -205,16 +205,16 @@ The second class present in the module is the `WeightManager`-class which works 
 
 ---
 
-## Methods for Class #2 - WeightManager
+## Methods for Class #2 - WeightCollection
 
-**(1.)** `removeWeight(weight)` - This method removes a instance of weight from the manager/collection.
+**(1.)** `removeWeightFromCollection(weight)` - This method removes a instance of weight from the collection.
 
 **Parameters:** `weight (Weight)` - Weight that you want to remove.
 **What it returns:** Returns a boolean. True if removed, false if not.
 
 ---
 
-**(2.)** `addWeight(weight)` - This method adds a instance of weight to the manager/collection.
+**(2.)** `addWeightToCollection(weight)` - This method adds a instance of weight to the collection.
 
 **Parameters:** `weight (Weight)` - Weight that you want to add.
 
@@ -222,9 +222,9 @@ The second class present in the module is the `WeightManager`-class which works 
 
 ---
 
-**(3.)** `numberOfWeights()` - Gets you the number of weights in the manager/collection.
+**(3.)** `numberOfWeights()` - Gets you the number of weights in the collection.
 
-**What it returns:** The actual number/count of weights that are in the manager/collection.
+**What it returns:** The actual number/count of weights that are in the collection.
 
 ---
 
@@ -241,7 +241,7 @@ The second class present in the module is the `WeightManager`-class which works 
 
 **What it returns:** A new instance of weight with average weight.
 
-- `Throws error` if there are no weights in the manager/collection or if the parameter is a invalid unit.
+- `Throws error` if there are no weights in the collection or if the parameter is a invalid unit.
 
 ---
 
@@ -249,7 +249,7 @@ The second class present in the module is the `WeightManager`-class which works 
 
 **What it returns:** The instance of weight that is the heaviest.
 
-- `Throws error` if there are no weights in the manager/collection.
+- `Throws error` if there are no weights in the collection.
 
 ---
 
@@ -257,19 +257,19 @@ The second class present in the module is the `WeightManager`-class which works 
 
 **What it returns:** The instance of weight that is the lightest.
 
-- `Throws error` if there are no weights in the manager/collection.
+- `Throws error` if there are no weights in the collection.
 
 ---
 
-**(8.)** `mergeManagersData(otherWeightManager)` - This method merges the weights in the other instance WeightManager to this instance of WeightManager.
+**(8.)** `mergeManagersData(otherWeightCollection)` - This method merges the weights in the other instance WeightCollection to this instance of WeightCollection.
 
-**Parameters:** `otherWeightManager (WeightManager)` - Another instance of WeightManager that contains the weights you want to merge.
+**Parameters:** `otherWeightCollection (WeightCollection)` - Another instance of WeightCollection that contains the weights you want to merge.
 
-- `Throws error` if `otherWeightManager` is not a instance of WeightManager.
+- `Throws error` if `otherWeightCollection` is not a instance of WeightCollection.
 
 ---
 
-**(9.)** `eraseAllWeights()` - This method erases all the weights in the manager/collection.
+**(9.)** `eraseAllWeights()` - This method erases all the weights in the collection.
 
 ---
 
